@@ -30,7 +30,7 @@ class OrderGoodsResource extends OrderGoods
                 return $this->totalPriceYuan();
             },
             'book_num' => function () {
-                return $this->book_num;
+                return sprintf("%g", $this->book_num);
             },
             'number' => function () {
                 return $this->number;
