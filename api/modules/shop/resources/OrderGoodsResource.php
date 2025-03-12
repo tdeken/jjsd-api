@@ -40,6 +40,9 @@ class OrderGoodsResource extends OrderGoods
             },
             'shelf_life' => function () {
                 return $this->shelf_life;
+            },
+            'remark' => function () {
+                return $this->remark;
             }
         ];
     }

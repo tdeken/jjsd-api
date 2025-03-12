@@ -140,7 +140,8 @@ class OrderService extends Service
                     'price' => $item['price'],
                     'book_num' => $item['book_num'],
                     'product_date' => $item['product_date'],
-                    'shelf_life' => $item['shelf_life']
+                    'shelf_life' => $item['shelf_life'],
+                    'remark' => $item['goods_remark'],
                 ];
             }
 
@@ -276,6 +277,7 @@ class OrderService extends Service
                 'product_date',
                 'shelf_life',
             ]), [
+                'goods_remark' => $form->goods_remark,
                 'goods_id' => $form->goods_id,
                 'book_num' => $form->book_num,
                 'price' => number_format($form->price, 2, '.', ''),
@@ -358,6 +360,7 @@ class OrderService extends Service
 
             $info['total_price'] = bcadd(bcsub($info['total_price'], $data['total'], 2), $total, 2);
 
+            $data['goods_remark'] = $form->goods_remark;
             $data['book_num'] = $form->book_num;
             $data['price'] = number_format($form->price, 2);
             $data['total'] = $total;
