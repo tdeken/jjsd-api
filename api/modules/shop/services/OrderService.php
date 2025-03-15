@@ -210,6 +210,7 @@ class OrderService extends Service
         foreach ($goodsList as $item) {
             $total = bcmul($item->book_num, $item->price, 2);
             $list[$listNextId] = [
+                'goods_remark' => $item->remark,
                 'name' => $item->name,
                 'number' => $item->number,
                 'unit' => $item->unit,
@@ -221,7 +222,7 @@ class OrderService extends Service
                 'book_num' => $item->book_num,
                 'price' => number_format($item->price, 2),
                 'total' => number_format($total, 2),
-                'id' => $listNextId
+                'id' => $listNextId,
             ];
             $totalPrice = bcadd($totalPrice, $total, 2);
             $listNextId++;
